@@ -34,34 +34,32 @@ class MyCustomFormState extends State<MyCustomForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              MyCustomTextField(
-                icon: Icons.email,
-                regExp: emailForm,
-                autoFocus: false,
-                obscureText: "Email",
-                controller: _emailController,
-              ),
-              MyCustomTextField(
-                icon: Icons.vpn_key,
-                regExp: passwordForm,
-                autoFocus: true,
-                obscureText: "Password",
-                controller: _passwordController,
-              ),
-            ],
-          ),
-          MySubmitButton(
-            formKey: _formKey,
-            email: _emailController,
-            passwd: _passwordController,
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            MyCustomTextField(
+              icon: Icons.email,
+              regExp: emailForm,
+              autoFocus: false,
+              obscureText: "Email",
+              controller: _emailController,
+            ),
+            MyCustomTextField(
+              icon: Icons.vpn_key,
+              regExp: passwordForm,
+              autoFocus: true,
+              obscureText: "Password",
+              controller: _passwordController,
+            ),
+            MySubmitButton(
+              formKey: _formKey,
+              email: _emailController,
+              passwd: _passwordController,
+            ),
+          ],
+        ),
       ),
     );
   }

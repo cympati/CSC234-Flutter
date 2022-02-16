@@ -22,6 +22,7 @@ class MyCustomTextField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: TextFormField(
+          style: const TextStyle(fontSize: 16),
           decoration:
               InputDecoration(hintText: obscureText, prefixIcon: Icon(icon)),
           obscureText: obscureText == "Password" ? true : false,
@@ -29,7 +30,7 @@ class MyCustomTextField extends StatelessWidget {
           autofocus: autoFocus,
           validator: (value) {
             if (value != null && !regExp.hasMatch(value)) {
-              return 'Please enter valid $obscureText';
+              return 'Your $obscureText is invalid';
             }
             return null;
           },

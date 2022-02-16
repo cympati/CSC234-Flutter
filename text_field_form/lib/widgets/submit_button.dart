@@ -51,22 +51,27 @@ class MySubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 14.0),
-      child: TextButton(
-        onPressed: () {
-          checkValidation(_formKey, context, email, passwd);
-        },
-        child: Container(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Padding(
           padding: const EdgeInsets.symmetric(vertical: 14.0),
-          width: 100,
-          child: const Text(
-            'Submit',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 18),
+          child: ElevatedButton(
+            onPressed: () {
+              checkValidation(_formKey, context, email, passwd);
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 14.0),
+              width: 100,
+              child: const Text(
+                'Submit',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

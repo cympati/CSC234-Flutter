@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './favorite_widget.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,44 +7,77 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget titleSection = Container(
-      padding: const EdgeInsets.all(32),
+    Widget hearts = Container(
       child: Row(
-        children: [
-          Expanded(
-            /*1*/
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                /*2*/
-                Container(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: const Text(
-                    'Patiphon Klangpraphan',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Text(
-                  'Computer Science, KMUTT',
-                  style: TextStyle(
-                    color: Colors.grey[500],
-                  ),
-                ),
-              ],
-            ),
+        children: const [
+          Icon(
+            Icons.favorite,
+            size: 20.0,
+            color: Colors.blueAccent,
           ),
-          const FavoriteWidget(),
+          Icon(
+            Icons.favorite,
+            size: 20.0,
+            color: Colors.blueAccent,
+          ),
+          Icon(
+            Icons.favorite,
+            color: Colors.blueAccent,
+            size: 20.0,
+          ),
+          Icon(
+            Icons.favorite_border_outlined,
+            size: 20.0,
+          ),
+          Icon(
+            Icons.favorite_border_outlined,
+            size: 20.0,
+          ),
         ],
       ),
     );
 
-    Color color = Colors.brown[500]!;
+    Widget titleSection = Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          padding:
+              const EdgeInsets.only(left: 20, right: 20, top: 50, bottom: 25),
+          width: 250,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              hearts,
+              const Text(
+                '10K results',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.only(left: 0, right: 0, top: 10, bottom: 0),
+          child: Text(
+            'Solution means',
+            style: TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ],
+    );
+
+    Color color = Colors.purple[800]!;
     final buttons = [
-      _buildButtonColumn(color, Icons.call, '095-660-0463'),
-      _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
-      _buildButtonColumn(color, Icons.share, 'SHARE')
+      _buildButtonColumn(color, Icons.access_time_outlined, 'TIME: \n\n 250ms'),
+      _buildButtonColumn(color, Icons.search, 'ITEM: \n\n 10K'),
+      _buildButtonColumn(color, Icons.panorama_photosphere, 'MEANNG: \n\n 2+')
     ];
 
     Widget buttonSection = SizedBox(
@@ -62,57 +94,63 @@ class MyApp extends StatelessWidget {
     Widget textSection = Container(
       padding: const EdgeInsets.all(32),
       child: const Text(
-        'Hello, my name is Patiphon Klangpraphan. You can call me Cream for short.'
-        'I am a junior programmer at computer science at SIT, KMUTT. I have two apparent personalities.'
-        'First, I am highly organized. I always take notes, and I use a series of tools to help myself stay on '
-        'top of deadlines. I like to keep a clean workspace and get something done ahead of time so I’m always able to '
-        'do many thing that I already plan in one day. And another is I am a people-person. I love meeting new people '
-        'and learning about their lives and their backgrounds. I like making people feel comfortable in my presence. '
-        'Moreover, I try my best to be humble, kind and respectful of everybody. I meet regardless of their age, gender, '
-        'family background, nationality or race. Overall, I find these increase efficiency of my work and keeps it stay on '
-        'track, and is especially helpful when kicking off projects with new team or people, too.',
+        '1. a means of solving a problem or dealing with a difficult situation. \n2. a liquid mixture in which the minor component (the solute) is uniformly distributed within the major component (the solvent).',
+        textAlign: TextAlign.start,
+        style: TextStyle(
+          fontSize: 24,
+          // fontWeight: FontWeight.w600,
+          color: Colors.black,
+        ),
         softWrap: true,
       ),
     );
 
     return MaterialApp(
       title: 'Basic layout with interactive',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'Profile',
-            style: TextStyle(
-                // color: Colors.black,
-                ),
+            'What is the solution?',
+            textAlign: TextAlign.start,
           ),
-          backgroundColor: Colors.brown[500],
         ),
-        body: ListView(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(top: 40, right: 30, left: 30),
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.black, width: 2.0),
-                  borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                  boxShadow: [
-                    BoxShadow(
-                        blurRadius: 10,
-                        color: Colors.grey[800]!,
-                        offset: const Offset(1, 2))
-                  ]),
-              child: Image.asset(
-                'assets/images/b.jpg',
-                width: 600,
-                height: 240,
-                fit: BoxFit.cover,
+        body: Container(
+          decoration: const BoxDecoration(color: Colors.white),
+          height: 1000,
+          padding:
+              const EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 100),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: 450,
+                          child: Column(
+                            children: [
+                              titleSection,
+                              textSection,
+                              buttonSection,
+                            ],
+                          ),
+                        ),
+                        const ImageChanging(),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ),
-            titleSection,
-            buttonSection,
-            textSection,
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -128,14 +166,50 @@ class MyApp extends StatelessWidget {
           margin: const EdgeInsets.only(top: 8),
           child: Text(
             label,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: color,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
             ),
           ),
         ),
       ],
+    );
+  }
+}
+
+class ImageChanging extends StatefulWidget {
+  const ImageChanging({Key? key}) : super(key: key);
+
+  @override
+  _ImageChangingState createState() => _ImageChangingState();
+}
+
+class _ImageChangingState extends State<ImageChanging> {
+  var images = ['assets/images/Capture.jpg', 'assets/images/Capturescr.PNG'];
+  int i = 0;
+  handleTab() {
+    if (i == 0) {
+      setState(() {
+        i++;
+      });
+    } else {
+      setState(() {
+        i--;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        handleTab();
+      },
+      child: Image.asset(
+        images[i],
+      ),
     );
   }
 }

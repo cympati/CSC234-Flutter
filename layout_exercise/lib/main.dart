@@ -52,6 +52,7 @@ class MyApp extends StatelessWidget {
           _partTwo(context),
           const SizedBox(height: 16),
           _partThree(),
+          _test(),
         ],
       ),
     );
@@ -115,5 +116,68 @@ class MyApp extends StatelessWidget {
         Icon(Icons.phone_iphone),
       ],
     );
+  }
+
+  Widget _test() {
+return Row(​
+  crossAxisAlignment: CrossAxisAlignment.center,​
+  children: [​
+    Expanded(​
+      child: Image.asset('images/pic1.jpg'),​
+    ),​
+    Expanded(​
+      flex: 2,​
+      child: Image.asset('images/pic2.jpg'),​
+    ),​
+    Expanded(​
+      child: Image.asset('images/pic3.jpg'),​
+    ),
+  ],
+);
+
+//     final descTextStyle = TextStyle(​
+//   color: Colors.black,​
+//   fontWeight: FontWeight.w800,​
+//   fontFamily: 'Roboto',​
+//   letterSpacing: 0.5,​
+//   fontSize: 18,​
+//   height: 2,​
+// );​
+
+
+// final iconList = DefaultTextStyle.merge(​
+//   style: descTextStyle,​
+//   child: Container(​
+//     padding: EdgeInsets.all(20),​
+//     child: Row(​
+//       mainAxisAlignment: MainAxisAlignment.spaceEvenly,​
+//       children: [​
+//         Column(​
+//           children: [​
+//             Icon(Icons.kitchen, color: Colors.green[500]),​
+//             Text('PREP:'),​
+//             Text('25 min'),​
+//           ],​
+//         ),​
+//         Column(​
+//           children: [​
+//             Icon(Icons.timer, color: Colors.green[500]),​
+//             Text('COOK:'),​
+//             Text('1 hr'),​
+//           ],​
+//         ),​
+//         Column(​
+//           children: [​
+//             Icon(Icons.restaurant, color: Colors.green[500]),​
+//             Text('FEEDS:'),​
+//             Text('4-6'),​
+//           ],​
+//         ),​
+//       ],​
+//     ),​
+//   ),​
+  
+// );
+
   }
 }

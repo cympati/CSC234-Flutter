@@ -13,7 +13,9 @@ class Detail1Screen extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.lightGreen),
       home: Scaffold(
         appBar: AppBar(
-          title: Text(args.title),
+          title: Text(
+            args.title,
+          ),
           leading: Tooltip(
             message: 'Back',
             child: ElevatedButton(
@@ -32,8 +34,14 @@ class Detail1Screen extends StatelessWidget {
         ),
         body: Center(
           child: args.message != ""
-              ? Text(args.message)
-              : Text("There is no ${args.title}"),
+              ? Text(
+                  args.message,
+                  style: const TextStyle(fontSize: 20),
+                )
+              : Text(
+                  "There is no ${args.title}",
+                  style: const TextStyle(fontSize: 20),
+                ),
         ),
       ),
     );

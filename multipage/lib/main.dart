@@ -52,16 +52,16 @@ class _MyHomePageState extends State<MyHomePage> {
           TextFieldForm(
             controller: myController1,
             path: Detail1Screen.routeName,
+            color: Colors.lightGreen,
             pageName: "Detail 1",
             placeholder: "Enter your detail 1",
-            color: Colors.lightGreen,
           ),
           TextFieldForm(
             controller: myController2,
             path: Detail2Screen.routeName,
+            color: Colors.amber,
             pageName: "Detail 2",
             placeholder: "Enter your detail 2",
-            color: Colors.amber,
           ),
         ],
       ),

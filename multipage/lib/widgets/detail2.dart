@@ -10,7 +10,9 @@ class Detail2Screen extends StatelessWidget {
     final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
 
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.amber),
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text(args.title),
@@ -32,8 +34,14 @@ class Detail2Screen extends StatelessWidget {
         ),
         body: Center(
           child: args.message != ""
-              ? Text(args.message)
-              : Text("There is no ${args.title}"),
+              ? Text(
+                  args.message,
+                  style: const TextStyle(fontSize: 20),
+                )
+              : Text(
+                  "There is no ${args.title}",
+                  style: const TextStyle(fontSize: 20),
+                ),
         ),
       ),
     );

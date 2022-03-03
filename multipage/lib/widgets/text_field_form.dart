@@ -6,16 +6,16 @@ class TextFieldForm extends StatelessWidget {
     Key? key,
     required this.controller,
     required this.path,
+    required this.color,
     required this.pageName,
     required this.placeholder,
-    required this.color,
   }) : super(key: key);
 
   final TextEditingController controller;
   final String path;
+  final Color color;
   final String pageName;
   final String placeholder;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
